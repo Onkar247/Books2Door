@@ -9,7 +9,7 @@
 <body>
 	<header>
 	    <div class="menu">
-	      <img src="logo.jpg" class="logo">
+	      <img src="./images/logo.jpg" class="logo">
 	      <nav>
 	        <ul>
 	            <li><a href="home.php" target="_top">Home</a></li>
@@ -22,11 +22,8 @@
 	      </nav>
 	    </div>
   	</header>
-  	<h3><marquee onmouseover="mOver(this)"onmouseout="mOut(this)"style="background-color:rgba(227,223,228,0.6)">New Collections coming soon!!</marquee></h3>
-  	<!-- <form class="search">
-    	<button type="submit" style="float:right;"><i class="fa fa-search"></i></button>
-      	<input type="text" placeholder="Search.." style="float:right;">
-  	</form> -->
+    <h3><marquee onmouseover="mOver(this)"onmouseout="mOut(this)"style="background-color:rgba(227,223,228,0.6)">New Collections coming soon!!</marquee></h3>
+  	
 
   <?php 
     session_start();
@@ -45,19 +42,19 @@
 
   <div class="mySlides fade">
  
-    <img src="h1.jpg" >
+    <img src="./images/h1.jpg" >
     
   </div>
 
   <div class="mySlides fade">
    
-    <img src="h2.jpg">
+    <img src="./images/h2.jpg">
     
   </div>
 
   <div class="mySlides fade">
    
-    <img src="h3.jpg">
+    <img src="./images/h3.jpg">
   
   </div>
   </div>
