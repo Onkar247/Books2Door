@@ -1,3 +1,0 @@
-Important:
-Create Database with name "allphptricks"
-then import the attached products.sql file
