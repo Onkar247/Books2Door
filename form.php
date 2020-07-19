@@ -17,7 +17,7 @@
 <body>
 	<header>
 	    <div class="menu">
-	      <img src="logo.jpg" class="logo">
+	      <img src="./images/logo.jpg" class="logo">
 	      <nav>
 	        <ul>
 	            <li><a href="main.php" target="_top">Home</a></li>
