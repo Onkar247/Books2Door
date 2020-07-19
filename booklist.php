@@ -8,7 +8,7 @@
 <body>
 	<header>
 	    <div class="menu">
-	      <img src="logo.jpg" class="logo">
+	      <img src="./images/logo.jpg" class="logo">
 	      <nav>
 	        <ul>
 	            <li><a href="home.php" target="_top">Home</a></li>
@@ -22,16 +22,7 @@
 	    </div>
   	</header>
   	<h3><marquee onmouseover="mOver(this)"onmouseout="mOut(this)"style="background-color:rgba(227,223,228,0.6)">New Collections coming soon!!</marquee></h3>
-<div class="Select">
-	<button class="but"><font size="5">Category</font></button>
-	<div class="dropdown">
-	    <a href="">Motivational</a>
-	    <a href="">Comic</a>
-	    <a href="">Educational</a>
-	    <a href="">Thriller</a>
-	    <a href="">Spiritual</a>
-  	</div>
-</div>
+
 <?php
 session_start();
  $con = mysqli_connect("localhost","root","","b2d");
