@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	unset($_SESSION["shopping_cart"]);
 	$message1="";
 	$message2="";
 	if(count($_POST)>0) 
@@ -52,7 +53,7 @@
 	<body>
 		 <header>
 		    <div class="menu">
-		      <img src="logo.jpg" class="logo">
+		      <img src="./images/logo.jpg" class="logo">
 		      <nav>
 		        <ul>
 		            <li><a href="main.php" target="_top">Home</a></li>
@@ -62,17 +63,8 @@
 		      </nav> 
 		    </div>
 	  	</header>
-	  	<h3><marquee onmouseover="mOver(this)"onmouseout="mOut(this)"style="background-color:rgba(227,223,228,0.6)">New Collections coming soon!!</marquee></h3>
-	  <!-- 	<form class="search">
-	    	<button type="submit" style="float:right;"><div class="fa fa-search"></div></button>
-	      	<input type="text" placeholder="Search.." style="float:right;">
-	  	</form> -->
-	  	<!-- <?php 
-		  	// if(!empty($_SESSION))
-		  	// {
-		  	// 	session_destroy();
-		  	// }
-	  	?> -->
+  	<h3><marquee onmouseover="mOver(this)"onmouseout="mOut(this)"style="background-color:rgba(227,223,228,0.6)">New Collections coming soon!!</marquee></h3>
+	
 	  	<div class="login">
 	    	<form name="main" align="center" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 	      		<div class="logname">Log In</div>
