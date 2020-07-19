@@ -4,12 +4,79 @@
   	<title>b2d</title>
   	<link rel="stylesheet" type="text/css" href="style1.css">
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  	<script src="web.js"></script>
+  	<script type="text/javascript">
+  		function orderform()
+		{
+ 		 	alert("Order Placed Successfully!!");
+		}
+  	</script>
+<style>
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 1;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  -webkit-animation-name: fadeIn; /* Fade in the background */
+  -webkit-animation-duration: 0.4s;
+  animation-name: fadeIn;
+  animation-duration: 0.4s
+}
+.modal-content {
+  position:relative;
+  top:1;
+  bottom: 1;
+  left:1;
+  right:1;
+  background-color: #fefefe;
+  width: 50%;
+  -webkit-animation-name: slideIn;
+  -webkit-animation-duration: 0.4s;
+  animation-name: slideIn;
+  animation-duration: 0.4s
+}
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+.modal-body {padding: 2px 16px;}
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+@keyframes slideIn {
+  from {bottom: -300px; opacity: 0}
+  to {bottom: 0; opacity: 1}
+}
+@keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+</style>
 </head>
 <body>
 	<header>
 	    <div class="menu">
-	      <img src="logo.jpg" class="logo">
+	      <img src="./images/logo.jpg" class="logo">
 	      <nav>
 	        <ul>
 	            <li><a href="home.php" target="_top">Home</a></li>
@@ -124,13 +191,36 @@
 	</td>
 </tr>
 </tbody>
-</table>		
-  
+</table><br>		
+ <form action="<?php echo $_SERVER['PHP_SELF']; ?>" onsubmit="return orderform();" align="center"  method="post">
+  <button class='placeo' type="submit" name="order">Place Order</button>
+</form>
 <?php
 	}
 	else
 	{
 		echo "<h3>Your cart is empty!</h3>";
+	}
+	if(isset($_POST['order']))
+	{
+		$con = mysqli_connect("localhost","root","","b2d");
+		if (mysqli_connect_errno()){
+			echo "Failed to connect to MySQL: " . mysqli_connect_error();
+			die();
+		}
+		$usr=$_SESSION["username"];
+		$pr=array();
+		foreach ($_SESSION["shopping_cart"] as $product) 
+		{
+			array_push($pr, $product["name"]);
+			$pdt=implode(",", $pr);
+		}	
+		global $pdt,$total_price;
+		$sql="UPDATE cart SET products='$pdt',amount='$total_price' WHERE username='$usr'";
+		if(!mysqli_query($con,$sql))
+		{
+			die('Error:'.mysqli_error($con));
+		}
 	}
 ?>
 
